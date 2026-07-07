@@ -4,67 +4,107 @@
     box-sizing: border-box;
 }
 
+:root {
+    --real-navy: #0f172a;
+    --real-gold: #f5c542;
+    --real-gold-deep: #d4a017;
+    --real-white: #f8f8f4;
+    --real-cream: #fff8e1;
+    --real-text: #111827;
+    --real-muted: #4b5563;
+    --real-border: rgba(15, 23, 42, 0.08);
+}
+
+body {
+    font-family: "Segoe UI", "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #fdfdf8 0%, #f6f1e8 100%);
+    color: var(--real-text);
+    line-height: 1.6;
+}
+
 .part {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 5rem 0;
 }
 
 .hero {
-    background: linear-gradient(135deg, #ffffff 0%, #fff8e1 50%, #ffeb3b 100%);
-    background: linear-gradient(135deg, #ffffff, #fffde7, #ffeb3b);
+    background:
+        radial-gradient(circle at top left, rgba(245, 197, 66, 0.25), transparent 28%),
+        linear-gradient(135deg, #ffffff 0%, #fff8e1 45%, #f5c542 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(15, 23, 42, 0.04), transparent 30%, rgba(15, 23, 42, 0.04));
+    pointer-events: none;
 }
 
 .hero-content {
     text-align: center;
-    padding: 2rem;
-    max-width: 800px;
+    padding: 3rem;
+    max-width: 860px;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(245, 197, 66, 0.4);
+    border-radius: 28px;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(10px);
 }
 
 .hero-title {
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 800;
-    color: #1a1a1a;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    color: var(--real-navy);
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
 .hero-subtitle {
     font-size: clamp(1rem, 2.5vw, 1.375rem);
-    color: #333;
-    line-height: 1.6;
-    margin-bottom: 2.5rem;
-    font-weight: 400;
+    color: var(--real-muted);
+    line-height: 1.7;
+    margin-bottom: 2.25rem;
+    font-weight: 500;
 }
 
 .hero-btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    font-size: 1.125rem;
+    padding: 1rem 2.25rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    color: #fff;
-    background: linear-gradient(135deg, #ff6b00, #ff8f00);
+    color: var(--real-navy);
+    background: linear-gradient(135deg, var(--real-gold), var(--real-gold-deep));
     border: none;
-    border-radius: 50px;
+    border-radius: 999px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 14px rgba(255, 107, 0, 0.4);
+    box-shadow: 0 10px 24px rgba(213, 160, 23, 0.28);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 .hero-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(213, 160, 23, 0.35);
 }
 
 .hero-btn:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(255, 107, 0, 0.4);
+    box-shadow: 0 6px 14px rgba(213, 160, 23, 0.26);
 }
 
 .hero-btn:focus-visible {
-    outline: 3px solid #ff8f00;
+    outline: 3px solid var(--real-gold);
     outline-offset: 3px;
 }
 
@@ -85,12 +125,30 @@
 }
 
 .section-title {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2rem, 5vw, 2.8rem);
     font-weight: 800;
-    color: #1a1a1a;
+    color: var(--real-navy);
     text-align: center;
     margin-bottom: 3rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 4px;
+    margin: 0.8rem auto 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--real-gold), transparent);
+}
+
+.about-section {
+    background: linear-gradient(135deg, #fdfcf8 0%, #f8f1e2 100%);
 }
 
 .about-content {
@@ -119,24 +177,25 @@
 }
 
 .stat {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
     padding: 2rem 1.5rem;
-    border-radius: 16px;
+    border-radius: 18px;
     text-align: center;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(245, 197, 66, 0.22);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .stat:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 44px rgba(15, 23, 42, 0.12);
 }
 
 .stat-number {
     display: block;
     font-size: 3rem;
     font-weight: 800;
-    color: #ff6b00;
+    color: var(--real-gold-deep);
     line-height: 1;
     margin-bottom: 0.5rem;
 }
@@ -171,7 +230,7 @@
 }
 
 .focus-section {
-    background: #fff;
+    background: linear-gradient(135deg, #ffffff 0%, #fcf8ee 100%);
 }
 
 .focus-content {
@@ -204,31 +263,31 @@
 }
 
 .step-box {
-    background: linear-gradient(135deg, #fff8e1, #ffecb3);
-    border: 2px solid #ffd54f;
-    border-radius: 16px;
+    background: linear-gradient(135deg, #fffef8, #f9f0ce);
+    border: 2px solid rgba(245, 197, 66, 0.45);
+    border-radius: 18px;
     padding: 2rem 1.5rem;
     min-width: 180px;
     text-align: center;
-    box-shadow: 0 4px 16px rgba(255, 213, 79, 0.2);
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .step-box:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(255, 213, 79, 0.3);
+    box-shadow: 0 20px 36px rgba(15, 23, 42, 0.12);
 }
 
 .step-number {
     display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #ff6b00, #ff8f00);
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--real-navy), #1f2f4f);
     color: #fff;
     border-radius: 50%;
     font-size: 1.25rem;
     font-weight: 800;
-    line-height: 40px;
+    line-height: 44px;
     margin-bottom: 0.75rem;
 }
 
@@ -269,7 +328,7 @@
 }
 
 .season-section {
-    background: #fafafa;
+    background: linear-gradient(135deg, #faf8f2 0%, #f4efe6 100%);
     min-height: auto;
     padding: 6rem 0;
 }
@@ -282,16 +341,17 @@
 }
 
 .season-card {
-    background: #fff;
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 18px;
     padding: 1.5rem;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(245, 197, 66, 0.16);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .season-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 22px 44px rgba(15, 23, 42, 0.12);
 }
 
 .season-card h3 {
@@ -352,13 +412,13 @@
     padding: 0.5rem 1rem;
     font-size: 0.8125rem;
     font-weight: 700;
-    color: #fff;
-    background: linear-gradient(135deg, #ff6b00, #ff8f00);
+    color: var(--real-navy);
+    background: linear-gradient(135deg, var(--real-gold), var(--real-gold-deep));
     border: none;
-    border-radius: 20px;
+    border-radius: 999px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 8px rgba(255, 107, 0, 0.3);
+    box-shadow: 0 8px 16px rgba(213, 160, 23, 0.22);
 }
 
 .sell-btn:hover {
@@ -467,11 +527,12 @@
 }
 
 .legend-card {
-    background: #fff;
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
     padding: 1.5rem;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
     text-align: center;
+    border: 1px solid rgba(245, 197, 66, 0.16);
 }
 
 .legend-card h3 {
@@ -545,20 +606,21 @@
 }
 
 .standing-card {
-    background: #fff;
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
     padding: 1.5rem;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(245, 197, 66, 0.16);
 }
 
 .standing-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 22px 44px rgba(15, 23, 42, 0.12);
 }
 
 .standing-card.ucl { border-top: 4px solid #1e3a8a; }
@@ -592,10 +654,10 @@
 }
 
 .sponsor {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
     padding: 1rem 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -603,11 +665,12 @@
     min-width: 120px;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(245, 197, 66, 0.14);
 }
 
 .sponsor:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 16px 28px rgba(15, 23, 42, 0.1);
 }
 
 .sponsor.main {
@@ -650,7 +713,7 @@
 
 /* Best Player of the Season section */
 .potm-section {
-    background: #fafafa;
+    background: linear-gradient(135deg, #f8f5eb 0%, #fefcf6 100%);
     min-height: auto;
     padding: 6rem 0;
 }
@@ -665,15 +728,16 @@
 
 .potm-card {
     background: #fff;
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(245, 197, 66, 0.2);
 }
 
 .potm-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 24px 46px rgba(15, 23, 42, 0.14);
 }
 
 .potm-img {
@@ -681,6 +745,11 @@
     height: 350px;
     object-fit: cover;
     display: block;
+    transition: transform 0.3s ease;
+}
+
+.potm-card:hover .potm-img {
+    transform: scale(1.03);
 }
 
 @media (max-width: 900px) {
