@@ -347,6 +347,41 @@
     color: #333;
 }
 
+.sell-btn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #ff6b00, #ff8f00);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(255, 107, 0, 0.3);
+}
+
+.sell-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+}
+
+.sell-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(255, 107, 0, 0.3);
+}
+
+.sell-btn:focus-visible {
+    outline: 2px solid #ff8f00;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sell-btn {
+        transition: none;
+    }
+}
+
 .best-game {
     text-align: center;
 }
@@ -611,4 +646,54 @@
     margin-bottom: 1rem;
     background: url('https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg') center/contain no-repeat;
     filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.3));
+}
+
+/* Best Player of the Season section */
+.potm-section {
+    background: #fafafa;
+    min-height: auto;
+    padding: 6rem 0;
+}
+
+.potm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.potm-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.potm-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.potm-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .potm-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+    
+    .potm-img { height: 280px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .potm-card {
+        transition: none;
+    }
 }
