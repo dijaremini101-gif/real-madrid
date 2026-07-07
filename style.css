@@ -1,0 +1,614 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.part {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero {
+    background: linear-gradient(135deg, #ffffff 0%, #fff8e1 50%, #ffeb3b 100%);
+    background: linear-gradient(135deg, #ffffff, #fffde7, #ffeb3b);
+}
+
+.hero-content {
+    text-align: center;
+    padding: 2rem;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.375rem);
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #ff6b00, #ff8f00);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(255, 107, 0, 0.4);
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+}
+
+.hero-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(255, 107, 0, 0.4);
+}
+
+.hero-btn:focus-visible {
+    outline: 3px solid #ff8f00;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-btn {
+        transition: none;
+    }
+}
+
+.about-section {
+    background: #fafafa;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-text p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.about-text em {
+    font-style: italic;
+    color: #1a1a1a;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.stat {
+    background: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ff6b00;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stat {
+        transition: none;
+    }
+}
+
+.focus-section {
+    background: #fff;
+}
+
+.focus-content {
+    margin-bottom: 4rem;
+}
+
+.focus-text {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: left;
+}
+
+.focus-text p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.focus-text strong {
+    color: #1a1a1a;
+}
+
+.steps-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.step-box {
+    background: linear-gradient(135deg, #fff8e1, #ffecb3);
+    border: 2px solid #ffd54f;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    min-width: 180px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(255, 213, 79, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.step-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 213, 79, 0.3);
+}
+
+.step-number {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff6b00, #ff8f00);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 40px;
+    margin-bottom: 0.75rem;
+}
+
+.step-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.4;
+}
+
+.step-arrow {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ff6b00;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .steps-visual {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .step-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .step-box {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .step-box {
+        transition: none;
+    }
+}
+
+.season-section {
+    background: #fafafa;
+    min-height: auto;
+    padding: 6rem 0;
+}
+
+.season-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.season-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.season-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.season-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #ffeb3b;
+}
+
+.jersey-showcase {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.jersey {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.jersey-img {
+    width: 80px;
+    height: 100px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.jersey-img.home {
+    background: linear-gradient(180deg, #fff 0%, #f0f0f0 100%);
+    border: 2px solid #e0e0e0;
+}
+
+.jersey-img.away {
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    border: 2px solid #0f3460;
+}
+
+.jersey-img.third {
+    background: linear-gradient(180deg, #00d4aa 0%, #00a388 100%);
+    border: 2px solid #007a63;
+}
+
+.jersey-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.best-game {
+    text-align: center;
+}
+
+.match-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.match-result .team.home { color: #1a1a1a; }
+.match-result .team.away { color: #004d98; }
+.match-result .score { color: #ff6b00; }
+
+.match-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+}
+
+.match-desc {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: #333;
+    font-style: italic;
+}
+
+.signings-list, .news-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.signings-list li {
+    font-size: 0.9375rem;
+    color: #333;
+    padding: 0.5rem;
+    background: #fff8e1;
+    border-radius: 8px;
+    border-left: 3px solid #ff6b00;
+}
+
+.news-tag {
+    display: inline-block;
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.news-tag:contains("CONFIRMED") { background: #e8f5e9; color: #2e7d32; }
+.news-tag.confirmed { background: #e8f5e9; color: #2e7d32; }
+.news-tag.rumor { background: #fff3e0; color: #e65100; }
+
+.news-list li {
+    font-size: 0.875rem;
+    color: #333;
+    padding: 0.5rem;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.legends-section {
+    margin-bottom: 4rem;
+}
+
+.legends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.legend-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.legend-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.legend-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.player-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.player-avatar.cr7 {
+    background: linear-gradient(135deg, #fff 0%, #e0e0e0 100%);
+    border: 3px solid #ffd700;
+}
+
+.player-avatar.kroos {
+    background: linear-gradient(135deg, #fff 0%, #e0e0e0 100%);
+    border: 3px solid #8b5cf6;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.player-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.player-stat {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.standings-section {
+    margin-bottom: 4rem;
+}
+
+.standings-section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.standings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.standing-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.standing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.standing-card.ucl { border-top: 4px solid #1e3a8a; }
+.standing-card.laliga { border-top: 4px solid #ffd700; }
+.standing-card.copadelrey { border-top: 4px solid #dc2626; }
+.standing-card.supercopa { border-top: 4px solid #7c3aed; }
+
+.comp-icon { font-size: 2rem; }
+.comp-name { font-weight: 600; color: #333; }
+.comp-result { font-size: 1.125rem; font-weight: 800; color: #1a1a1a; }
+.comp-detail { font-size: 0.875rem; color: #666; }
+
+.sponsors-section {
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.sponsors-section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.sponsors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.sponsor {
+    background: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 120px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sponsor:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.sponsor.main {
+    border: 2px solid #ffeb3b;
+}
+
+.sponsor span {
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 1rem;
+}
+
+.sponsor small {
+    color: #666;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 600px) {
+    .match-result { font-size: 1.25rem; }
+    .jersey-img { width: 60px; height: 75px; }
+    .sponsor { min-width: 100px; padding: 0.75rem 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .season-card, .legend-card, .standing-card, .sponsor {
+        transition: none;
+    }
+}
+
+/* Hero logo addition */
+.hero-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+    background: url('https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg') center/contain no-repeat;
+    filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.3));
+}
