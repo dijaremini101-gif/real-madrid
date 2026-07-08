@@ -15,25 +15,46 @@ document.addEventListener('DOMContentLoaded', () => {
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
 
+    function getBotReply(question) {
+        const q = question.toLowerCase();
+
+        if (q.includes('trophy') || q.includes('champions') || q.includes('league')) {
+            return 'Real Madrid have won 15 UEFA Champions League titles and 36 La Liga titles, making them one of the most decorated clubs in football history.';
+        }
+
+        if (q.includes('stadium') || q.includes('bernabeu')) {
+            return 'The Santiago Bernabéu is Real Madrid’s iconic home stadium and has been upgraded into a modern venue with a retractable roof, huge screens, and world-class facilities.';
+        }
+
+        if (q.includes('player') || q.includes('star') || q.includes('bellingham') || q.includes('vinicius') || q.includes('mbappe') || q.includes('modri')) {
+            return 'Real Madrid’s squad features stars such as Jude Bellingham, Vinícius Jr., Rodrygo, and Kylian Mbappé, alongside experienced leaders like Luka Modrić.';
+        }
+
+        if (q.includes('coach') || q.includes('manager') || q.includes('carlo')) {
+            return 'Real Madrid’s legendary history has been shaped by managers such as Carlo Ancelotti, who is widely respected for his success and experience.';
+        }
+
+        if (q.includes('founded') || q.includes('history')) {
+            return 'Real Madrid was founded in 1902 and has grown into one of the most successful football clubs in the world.';
+        }
+
+        if (q.includes('transfer') || q.includes('sign')) {
+            return 'Real Madrid is known for making major transfer moves and building teams around elite talent, especially in the European and global football market.';
+        }
+
+        return 'I can help with Real Madrid’s history, trophies, stadium, players, transfers, and current squad. Try asking about a player, a trophy, or the Bernabéu.';
+    }
+
     // Function to handle sending a message
     async function sendMessage() {
         const question = textarea.value.trim();
         if (!question) {
-            // Optionally show a placeholder or just return
             return;
         }
-        // Clear textarea
+
         textarea.value = '';
-        // Disable input while waiting? We'll just add user message and show thinking
         addMessage(question, 'user');
-        // Show thinking message
-        const thinkingId = 'thinking-' + Date.now();
         addMessage('Thinking...', 'bot');
-        // We'll replace the last message (the thinking one) with the actual response
-        // So we keep a reference to the last message element? Instead, we can add a temporary message and then update it.
-        // Simpler: we add a bot message with a special class, then when we get the response we find the last .bot message and update it.
-        // But we just added a thinking message, so we can get the last child.
-        // However, if we want to show a spinner, we could use a placeholder. For simplicity, we'll just update the last bot message.
 
         try {
             const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -55,27 +76,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             let answer = data.choices[0]?.message?.content;
             if (!answer) {
-                answer = 'Sorry, I could not generate a response.';
+                answer = getBotReply(question);
             }
 
-            // Find the last bot message (the one we just added) and replace its text
             const botMessages = messagesContainer.querySelectorAll('.ai-message.bot');
             if (botMessages.length > 0) {
                 const lastBot = botMessages[botMessages.length - 1];
                 lastBot.textContent = answer;
             } else {
-                // Fallback: just add a new message
                 addMessage(answer, 'bot');
             }
         } catch (error) {
             console.error('Error:', error);
-            // Replace the thinking message with an error
             const botMessages = messagesContainer.querySelectorAll('.ai-message.bot');
             if (botMessages.length > 0) {
                 const lastBot = botMessages[botMessages.length - 1];
-                lastBot.textContent = 'Something went wrong, please try again.';
+                lastBot.textContent = getBotReply(question);
             } else {
-                addMessage('Something went wrong, please try again.', 'bot');
+                addMessage(getBotReply(question), 'bot');
             }
         }
     }

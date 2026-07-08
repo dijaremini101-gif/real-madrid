@@ -827,9 +827,16 @@ body {
     padding: 6rem 0;
 }
 
+.ai-chat-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .ai-chat-container {
     max-width: 600px;
     width: 100%;
+    margin: 0 auto;
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 4px 30px rgba(0,0,0,0.1);
